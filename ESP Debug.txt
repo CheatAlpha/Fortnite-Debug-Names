@@ -1,0 +1,104 @@
+
+(Fortnite Debug Names for ESP)
+////////////////////////////////////////////////////
+(Example)
+/////////
+
+GetObjectFirstName is a pattern search , you need it to locate the ESP names.
+
+Make sure to define > (wcsstr(name.c_str(), xorstr(L"FortPickupAthena")))
+Have that at the start of the function.
+
+//THIS IS OUTDATED//////////////////////////
+std::wstring GetObjectFirstName(UObject* object) {
+	auto internalName = GetObjectNameInternal(object);
+	if (!internalName.c_str()) {
+		return L"";
+	}
+
+	std::wstring name(internalName.c_str());
+	Free(internalName.c_str());
+
+	return name;
+}
+//////////////////////////////////////////
+
+
+bool Settings.Chest
+auto name = Util::GetObjectFirstName(pawn);
+
+else if (Settings.Chest && wcsstr(name.c_str(), xorstr(L"Tiered_Chest")) && !((ReadBYTE(pawn, offsets::bAlreadySearched) >> 7) & 1)) {
+
+		auto ChestRoot = Util::GetPawnRootLocation(pawn);
+		if (ChestRoot) {
+		auto ChestPos = *ChestRoot;
+	        float dx = localPlayerLocation[0] - ChestPos.X;
+		float dy = localPlayerLocation[1] - ChestPos.Y;
+		float dz = localPlayerLocation[2] - ChestPos.Z;
+
+		if (Util::WorldToScreen(width, height, &ChestPos.X)) {
+		float dist = Util::SpoofCall(sqrtf, dx * dx + dy * dy + dz * dz) / 100.0f;
+
+	      if (dist < 100)
+	      {
+	      DrawNormalText(m_pFont, TextFormat(xorstr("Chest [%.0f m]"), dist), ImVec2(ChestPos.X, ChestPos.Y), 14.5f, ImGui::GetColorU32({ 1.00f, 0.00f, 0.00f, 1.00f }), true);
+	      }
+        }
+    }
+}
+
+
+////////////////////////////////////////////
+(NAMES)
+
+PlayerPawn_Athena_C & PlayerPawn_Athena_Phoebe_C & BP_MangPlayerPawn > (Players & Objects)
+
+MeatballVehicle_L > BoatESP
+
+JackalVehicle_Athena_C > DriftBoardESP
+
+FerretVehicle_C > PlaneESP
+
+
+/////////////
+(Cars)
+
+Valet_BasicCar_Vehicle_Upgrade_C > CarESP
+
+Valet_BigRig_Vehicle_C > TruckESP
+
+Valet_SportsCar_Vehicle_C > SportsCarESP
+
+Valet_TaxiCab_Vehicle_C > TaxiCarESP
+
+/////////////
+
+
+
+GolfCartVehicleSK_C > GolfCartESP
+
+ShoppingCartVehicleSK_C > ShoppingCartESP
+
+AthenaSupplyDrop_Llama > LlamaESP
+
+Tiered_Chest > ChestESP 
+
+B_Athena_Wumba > UpgradeBenchESP
+
+MountedTurret_C > TurretESP
+
+BGA_Athena_FlopperSpawn_World_C > Fishing HoleESP
+
+BP_IOPlayerPawn_Base_C > AI player/BOT (Could be outdated)
+
+Tiered_Ammo > AmmoESP
+
+AthenaSupplyDrop_C > SupplyDropESP
+
+
+
+
+
+
+
+
